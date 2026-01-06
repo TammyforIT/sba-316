@@ -9,16 +9,21 @@ textBtn.addEventListener("click", () => {
   title.classList.toggle("red");
 });
 //when clicked on it turns red.
+
 addBtn.addEventListener("click", () => {
   const li = document.createElement("li");
   li.textContent = "New";
   list.appendChild(li);
 });//this adds on to existing list
 
-document.querySelectorAll(".li").forEach(li => {
-  li.addEventListener("click", () => li.style.color = "blue");
+// EVENT DELEGATION so ALL li (even new ones) turn blue
+list.addEventListener("click", e => {
+  if (e.target.tagName === "LI") {
+    e.target.style.color = "blue";
+  }
 });
 //this change any text clicked on to blue. 
+
 tempBtn.addEventListener("click", () => {
   const frag = document.createDocumentFragment();
   const t = document.getElementById("temp");
@@ -32,8 +37,9 @@ const name = document.getElementById("name");
 const err = document.getElementById("err");
 
 form.addEventListener("input", () => {
-  err.textContent = form.value.length < 3 ? "Too short" : "";
+  err.textContent = name.value.length < 3 ? "Too short" : "";
 });
+//fixed: form.value doesn't exist, must check input.value
 
 form.addEventListener("submit", e => {
   e.preventDefault();
@@ -41,10 +47,10 @@ form.addEventListener("submit", e => {
   console.log(window.innerWidth);
 });
 //preventdefault so it doesnt restart to natural default after reload or submitted.
+
 title.addEventListener("mouseover", () => {
   title.setAttribute("title", "Hovering");
 });
 
 console.log(list.firstElementChild.textContent);
 console.log(list.firstElementChild.nextElementSibling.textContent);
-//
