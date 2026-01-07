@@ -7,11 +7,27 @@
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  padding: 25px;
+  border-radius: 12px;
+  width: 600px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 #title {
   margin-bottom: 15px;
   cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
 .red {
@@ -25,6 +41,7 @@ button {
   border: 1px solid #444;
   background: #f2f2f2;
   cursor: pointer;
+  border-radius: 6px;
 }
 
 button:hover {
@@ -33,6 +50,7 @@ button:hover {
 
 #list {
   margin: 15px 0;
+  padding-left: 20px;
 }
 
 #list li {
@@ -42,11 +60,14 @@ button:hover {
 
 form {
   margin-top: 20px;
+  display: flex;
+  align-items: center;
 }
 
 #name {
   padding: 5px;
   border: 1px solid #aaa;
+  border-radius: 4px;
 }
 
 #err {
