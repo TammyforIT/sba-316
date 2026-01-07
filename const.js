@@ -19,10 +19,33 @@ addBtn.addEventListener("click", () => {
 // ALL li (even new ones) turn blue
 list.addEventListener("click", e => {
   if (e.target.tagName === "LI") {
+
+    //ttext clicked to blu 
     e.target.style.color = "blue";
+
+    //
+    const li = e.target;
+    const oldText = li.textContent;
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = oldText;
+    input.style.width = "150px";
+
+    li.textContent = "";
+    li.appendChild(input);
+    input.focus();
+
+    const save = () => {
+      li.textContent = input.value.trim() || oldText;
+    };
+
+    input.addEventListener("blur", save);
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter") save();
+    });
   }
 });
-//this change any text clicked on to blue. 
 
 tempBtn.addEventListener("click", () => {
   const frag = document.createDocumentFragment();
@@ -33,7 +56,7 @@ tempBtn.addEventListener("click", () => {
 });//
 
 const form = document.getElementById("form");// use id first.
-const nameInput = document.getElementById("name"); 
+const nameInput = document.getElementById("nameinput"); 
 const err = document.getElementById("err");
 
 form.addEventListener("input", () => {
@@ -42,8 +65,17 @@ form.addEventListener("input", () => {
 
 form.addEventListener("submit", e => {
   e.preventDefault();
-  alert("Submitted");
+  alert("Submitted"); // kept alert
   console.log(window.innerWidth);
+
+  const value = nameInput.value.trim();
+  if (value.length < 3) return;
+
+  const li = document.createElement("li");
+  li.textContent = value;
+  list.appendChild(li);
+
+  nameInput.value = "";
 });
 //preventdefault so it doesnt restart to natural default after reload or submitted.
 
