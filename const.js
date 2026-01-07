@@ -16,7 +16,7 @@ addBtn.addEventListener("click", () => {
   list.appendChild(li);
 });//this adds on to existing list
 
-// EVENT DELEGATION so ALL li (even new ones) turn blue
+// ALL li (even new ones) turn blue
 list.addEventListener("click", e => {
   if (e.target.tagName === "LI") {
     e.target.style.color = "blue";
@@ -39,7 +39,6 @@ const err = document.getElementById("err");
 form.addEventListener("input", () => {
   err.textContent = name.value.length < 3 ? "Too short" : "";
 });
-//fixed: form.value doesn't exist, must check input.value
 
 form.addEventListener("submit", e => {
   e.preventDefault();
