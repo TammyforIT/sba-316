@@ -1,1 +1,1 @@
-this is the dom and bom with some js.
+The dom and bom and adding on to lists and getting elements by id bfore name
