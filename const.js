@@ -37,9 +37,9 @@ const name = document.getElementById("name");
 const err = document.getElementById("err");
 
 form.addEventListener("input", () => {
-  err.textContent = name.value.length < 3 ? "Too short" : "";
+  err.textContent = form.value.length < 3 ? "Too short" : "";
 });
-//fixed: form.value doesn't exist, must check input.value
+
 
 form.addEventListener("submit", e => {
   e.preventDefault();
