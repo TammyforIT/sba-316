@@ -16,7 +16,7 @@ addBtn.addEventListener("click", () => {
   list.appendChild(li);
 });//this adds on to existing list
 
-// EVENT DELEGATION so ALL li (even new ones) turn blue
+// ALL li (even new ones) turn blue
 list.addEventListener("click", e => {
   if (e.target.tagName === "LI") {
     e.target.style.color = "blue";
@@ -33,13 +33,12 @@ tempBtn.addEventListener("click", () => {
 });//
 
 const form = document.getElementById("form");// use id first.
-const name = document.getElementById("name");
+const nameInput = document.getElementById("name"); 
 const err = document.getElementById("err");
 
 form.addEventListener("input", () => {
-  err.textContent = form.value.length < 3 ? "Too short" : "";
+  err.textContent = nameInput.value.length < 3 ? "Too short" : "";
 });
-
 
 form.addEventListener("submit", e => {
   e.preventDefault();

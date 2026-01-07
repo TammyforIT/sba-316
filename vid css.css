@@ -52,8 +52,5 @@ form {
 #err {
   margin-left: 8px;
   font-size: 0.9rem;
-}
-
-video {
-  margin-top: 20px;
+  color: red;
 }
