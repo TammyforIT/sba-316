@@ -4,13 +4,20 @@ const addBtn = document.querySelector("#addBtn");
 const tempBtn = document.querySelector("#tempBtn");
 const list = document.querySelector("#list");
 
-const colors = ["red", "green", "blue"]; let index = 0; textBtn.addEventListener("click", () => { title.textContent = "Changed!"; title.style.color = colors[index]; index = (index + 1) % colors.length; });
+const colors = ["red", "green", "blue"]; 
+let index = 0; 
+
+textBtn.addEventListener("click", () => { 
+  title.textContent = "Changed!"; 
+  title.style.color = colors[index]; 
+  index = (index + 1) % colors.length; 
+});
 
 addBtn.addEventListener("click", () => {
   const li = document.createElement("li");
   li.textContent = "New";
   list.appendChild(li);
-});//this adds on to existing list
+});
 
 // ALL li (even new ones) turn blue
 list.addEventListener("click", e => {
@@ -81,3 +88,22 @@ title.addEventListener("mouseover", () => {
 
 console.log(list.firstElementChild.textContent);
 console.log(list.firstElementChild.nextElementSibling.textContent);
+
+/* ---------------------------------- */
+/* ADDED: Purple cursor + ripple code */
+/* ---------------------------------- */
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.pageX + "px";
+  cursor.style.top = e.pageY + "px";
+
+  const ripple = document.createElement("div");
+  ripple.className = "ripple";
+  ripple.style.left = e.pageX + "px";
+  ripple.style.top = e.pageY + "px";
+  document.body.appendChild(ripple);
+
+  setTimeout(() => ripple.remove(), 600);
+});
