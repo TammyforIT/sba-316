@@ -4,11 +4,7 @@ const addBtn = document.querySelector("#addBtn");
 const tempBtn = document.querySelector("#tempBtn");
 const list = document.querySelector("#list");
 
-textBtn.addEventListener("click", () => {
-  title.textContent = "Changed!";
-  title.classList.toggle("red");
-});
-//when clicked on it turns red.
+const colors = ["red", "green", "blue"]; let index = 0; textBtn.addEventListener("click", () => { title.textContent = "Changed!"; title.style.color = colors[index]; index = (index + 1) % colors.length; });
 
 addBtn.addEventListener("click", () => {
   const li = document.createElement("li");
