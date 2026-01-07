@@ -16,7 +16,7 @@ addBtn.addEventListener("click", () => {
   list.appendChild(li);
 });//this adds on to existing list
 
-// EVENT DELEGATION so ALL li (even new ones) turn blue
+//so ALL li (even new ones) turn blue
 list.addEventListener("click", e => {
   if (e.target.tagName === "LI") {
     e.target.style.color = "blue";
