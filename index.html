@@ -14,14 +14,14 @@
 
 <script>
   const btn = document.getElementById("btn");
-  const audio = document.getElementById("audio");
+  const audio = document.getElementById("audio"); // thse are elment but id cuz its special.
 
   let playing = false;
 
   btn.onclick = () => {
     if (!playing) {
       audio.play();
-      btn.textContent = "Stop";
+      btn.textContent = "Stop"; //like assign var.
       playing = true;
     } else {
       audio.pause();
