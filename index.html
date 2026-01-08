@@ -5,37 +5,64 @@
   <title>Basic DOM App</title>
   <link rel="stylesheet" href="vid css.css">
 </head>
+
 <body>
 
-  <div class="cursor"></div> <!-- purple cursor -->
+<button id="btn">Play</button>
 
-  <div class="container">
+<audio id="audio" src="dream bells.m4a"></audio>
 
-    <h1 id="title">Hello</h1>
+<script>
+  const btn = document.getElementById("btn");
+  const audio = document.getElementById("audio");
 
-    <button id="textBtn">Change Text</button>
-    <button id="addBtn">Add Item</button>
-    <button id="tempBtn">Add Template</button>
-    <video src="nights.mp4" width="400" controls></video>
+  let playing = false;
 
-    <ul id="list">
-      <li class="li">One</li>
-      <li class="li">Two</li>
-    </ul>
+  btn.onclick = () => {
+    if (!playing) {
+      audio.play();
+      btn.textContent = "Stop";
+      playing = true;
+    } else {
+      audio.pause();
+      audio.currentTime = 0;
+      btn.textContent = "Play";
+      playing = false;
+    }
+  };
+</script>
 
-    <form id="form">
-      <input id="nameinput" type="text" required minlength="3">
-      <span id="err" class="red"></span>
-      <button>Submit</button>
-    </form>
 
-    <template id="temp">
-      <li class="li">Template</li>
-    </template>
+<div class="cursor"></div>
 
-  </div>
+<div class="container">
 
-  <script src="const.js"></script>
+  <h1 id="title">Hello</h1>
+
+  <button id="textBtn">Change Text</button>
+  <button id="addBtn">Add Item</button>
+  <button id="tempBtn">Add Template</button>
+
+  <video src="nights.mp4" width="400" controls></video>
+
+  <ul id="list">
+    <li class="li">One</li>
+    <li class="li">Two</li>
+  </ul>
+
+  <form id="form">
+    <input id="nameinput" type="text" required minlength="3">
+    <span id="err" class="red"></span>
+    <button>Submit</button>
+  </form>
+
+  <template id="temp">
+    <li class="li">Template</li>
+  </template>
+
+</div>
+
+<script src="const.js"></script>
 
 </body>
 </html>

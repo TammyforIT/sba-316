@@ -105,9 +105,6 @@ title.addEventListener("mouseover", () => {
 console.log(list.firstElementChild.textContent);
 console.log(list.firstElementChild.nextElementSibling.textContent);
 
-/* ---------------------------------- */
-/* ADDED: Purple cursor + ripple code */
-/* ---------------------------------- */
 
 const cursor = document.querySelector(".cursor");
 
